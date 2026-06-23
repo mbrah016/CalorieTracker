@@ -1,6 +1,9 @@
 [build]
-  command = "npx expo export --platform web"
+  command = "npx expo export --platform web && node inject-key.js $GEMINI_API_KEY"
   publish = "dist"
+
+[build.environment]
+  NODE_OPTIONS = "node:worker_threads"
 
 [[redirects]]
   from = "/*"
