@@ -26,8 +26,8 @@ jobs:
 
       - name: Inject API Key
         run: |
-          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/_expo/static/js/web/*.js
-          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/*.js
+          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/_expo/static/js/web/*.js || true
+          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/*.js 2>/dev/null || true
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
