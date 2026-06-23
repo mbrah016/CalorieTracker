@@ -1,6 +1,7 @@
 [build]
   command = "npx expo export --platform web"
   publish = "dist"
+  environment = { GEMINI_API_KEY = "AQ.Ab8RN6I_6MhJaq0hdGpbE_c8AIDNiBzBZDqYULy6lv2tSn4H1w", EXPO_PUBLIC_GEMINI_API_KEY = "AQ.Ab8RN6I_6MhJaq0hdGpbE_c8AIDNiBzBZDqYULy6lv2tSn4H1w" }
 
 [[redirects]]
   from = "/*"
