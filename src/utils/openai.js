@@ -1,6 +1,5 @@
-import Constants from 'expo-constants';
-
-const GEMINI_API_KEY = Constants.expoConfig?.extra?.GEMINI_API_KEY || process.env.GEMINI_API_KEY || '';
+// Gemini API Key - Get yours at https://makersuite.google.com/app/apikey
+const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
 
 export async function analyzeFoodImage(base64Image) {
   const response = await fetch(
