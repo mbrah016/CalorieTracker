@@ -26,7 +26,8 @@ jobs:
 
       - name: Inject API Key
         run: |
-          find dist -name "*.js" -exec sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" {} \;
+          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/_expo/static/js/web/*.js
+          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/*.js
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
