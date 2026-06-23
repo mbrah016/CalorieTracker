@@ -25,6 +25,7 @@ jobs:
         run: npx expo export --platform web
         env:
           NODE_OPTIONS: 'node:worker_threads'
+          EXPO_PUBLIC_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
