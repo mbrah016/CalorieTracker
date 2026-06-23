@@ -21,13 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Build Web App
-        run: npx expo export --platform web
-
-      - name: Inject API Key
+      - name: Build and inject API key
         run: |
-          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/_expo/static/js/web/*.js || true
-          sed -i "s|YOUR_GEMINI_API_KEY|${{ secrets.GEMINI_API_KEY }}|g" dist/*.js 2>/dev/null || true
+          npx expo export --platform web
+          node inject-key.js "${{ secrets.GEMINI_API_KEY }}"
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
