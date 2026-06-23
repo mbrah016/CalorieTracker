@@ -1,5 +1,5 @@
 // Gemini API Key - Get yours at https://makersuite.google.com/app/apikey
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'YOUR_GEMINI_API_KEY';
+const GEMINI_API_KEY = import.meta.env.EXPO_PUBLIC_GEMINI_API_KEY || 'YOUR_GEMINI_API_KEY';
 
 export async function analyzeFoodImage(base64Image) {
   const response = await fetch(
